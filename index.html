@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Urvi ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<audio autoplay loop id="bgMusic">
+  <source src="Until I Found You.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container" id="p1">
+  <h1>Hey Urvi 💕</h1>
+  <p>This is something I made… just for you</p>
+  <button onclick="go('p1','p2')">Continue 💌</button>
+</div>
+
+<div class="container hidden" id="p2">
+  <img src="urvi1.jpg" class="photo">
+  <h2>This smile 🥹</h2>
+  <p>The one that stays in my head all day</p>
+  <button onclick="go('p2','p3')">Next ➝</button>
+</div>
+
+<div class="container hidden" id="p3">
+  <img src="jhumka.jpg" class="photo">
+  <h2>That jhumka ✨</h2>
+  <p>You wearing this should be illegal</p>
+  <button onclick="go('p3','p4')">Next ➝</button>
+</div>
+
+<div class="container hidden" id="p4">
+  <img src="couple.jpg" class="photo">
+  <h2>Us 🤍</h2>
+  <p>My favorite view. Always.</p>
+  <button onclick="go('p4','p5')">Next ➝</button>
+</div>
+
+<div class="container hidden" id="p5">
+  <img src="hands.jpg" class="photo">
+  <h2>Like this… forever 🥹</h2>
+  <p>Holding you, choosing you</p>
+  <button onclick="go('p5','p6')">Next ➝</button>
+</div>
+
+<div class="container hidden" id="p6">
+  <img src="https://media.tenor.com/zGm5acSjHCIAAAAC/cat-begging.gif" class="cat">
+  <h2>Urvi…</h2>
+  <p>Will you be mine? 💕</p>
+
+  <div class="buttons">
+    <button class="yes" onclick="go('p6','p7')">YES 💖</button>
+    <button class="no" id="noBtn">NO 😒</button>
+  </div>
+</div>
+
+<div class="container hidden
