@@ -7,15 +7,18 @@
 
 <style>
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
   background: #ffe6ee;
   text-align: center;
-  margin: 0;
+  overflow: hidden;
 }
 
 .section {
   display: none;
   padding: 40px 20px;
+  position: relative;
+  z-index: 2;
 }
 
 .section.active {
@@ -29,14 +32,30 @@ img {
 }
 
 button {
-  padding: 10px 20px;
+  padding: 10px 22px;
   background: #ff5c8a;
   border: none;
-  border-radius: 20px;
+  border-radius: 22px;
   color: white;
   font-size: 15px;
   cursor: pointer;
   margin-top: 15px;
+}
+
+/* Floating Hearts */
+.heart {
+  position: fixed;
+  bottom: 0;
+  font-size: 18px;
+  opacity: 0.8;
+  animation: floatUp 6s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-100vh); opacity: 0; }
 }
 </style>
 </head>
@@ -47,14 +66,14 @@ button {
   <source src="Until I Found You.mp3" type="audio/mpeg">
 </audio>
 
-<!-- SECTION 1 -->
+<!-- 1 -->
 <div class="section active">
   <h2>Hey Urvi 💕</h2>
   <p>This is something I made… just for you</p>
   <button onclick="next()">Continue 💌</button>
 </div>
 
-<!-- SECTION 2 -->
+<!-- 2 -->
 <div class="section">
   <h2>This smile 🥺</h2>
   <p>The one that stays in my head all day</p>
@@ -62,7 +81,15 @@ button {
   <button onclick="next()">Next →</button>
 </div>
 
-<!-- SECTION 3 -->
+<!-- 3 -->
+<div class="section">
+  <h2>You again 🫶</h2>
+  <p>Some people feel like home… you’re mine</p>
+  <img src="urvi2.jpg">
+  <button onclick="next()">Next →</button>
+</div>
+
+<!-- 4 -->
 <div class="section">
   <h2>That jhumka ✨</h2>
   <p>You wearing this should be illegal</p>
@@ -70,7 +97,7 @@ button {
   <button onclick="next()">Next →</button>
 </div>
 
-<!-- SECTION 4 -->
+<!-- 5 -->
 <div class="section">
   <h2>Us 🤍</h2>
   <p>My favorite view. Always.</p>
@@ -78,7 +105,7 @@ button {
   <button onclick="next()">Next →</button>
 </div>
 
-<!-- SECTION 5 -->
+<!-- 6 -->
 <div class="section">
   <h2>Like this… forever 🥹</h2>
   <p>Holding you, choosing you</p>
@@ -86,7 +113,31 @@ button {
   <button onclick="next()">Next →</button>
 </div>
 
-<!-- SECTION 6 -->
+<!-- 7 — YOUR CUSTOM MESSAGE -->
+<div class="section">
+  <h2>Happy New Year 2026, my Urvi ❤️</h2>
+  <p style="max-width: 500px; margin: auto; line-height: 1.6;">
+    From meeting as friends in October, to sharing laughs on the badminton court,
+    to holding hands in November — every moment with you has been magic.<br><br>
+
+    This past year, you became my heart, my smile, my everything.<br><br>
+
+    As 2026 begins, all I want is another year that’s ours —
+    full of love, stolen glances, late-night talks,
+    and moments where it’s just you and me against the world.<br><br>
+
+    I promise to cherish you more with every sunrise and every heartbeat.<br><br>
+
+    Thank you for being mine… and for making me the happiest.<br><br>
+
+    Here’s to us, to love, and to a year even sweeter than the last 💫<br><br>
+
+    <strong>Always yours,<br>Shivam</strong>
+  </p>
+  <button onclick="next()">Next →</button>
+</div>
+
+<!-- 8 -->
 <div class="section">
   <h2>Urvi… 💖</h2>
   <p>Will you be mine?</p>
@@ -99,13 +150,21 @@ let current = 0;
 const sections = document.querySelectorAll(".section");
 
 function next() {
-  if (current === 0) {
-    document.getElementById("music").play();
-  }
+  if (current === 0) document.getElementById("music").play();
   sections[current].classList.remove("active");
   current++;
   sections[current].classList.add("active");
 }
+
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerText = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (Math.random() * 12 + 14) + "px";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}, 350);
 
 function yes() {
   alert("She said YES 💖💍");
