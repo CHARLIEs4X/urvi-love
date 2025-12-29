@@ -1,59 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>For Urvi ❤️</title>
-  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #ffe6ee;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .screen {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+    p {
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      background: #ff5c8a;
+      color: white;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    img {
+      width: 85%;
+      max-width: 350px;
+      border-radius: 15px;
+      margin: 15px 0;
+    }
+  </style>
 </head>
+
 <body>
 
-<audio autoplay loop id="bgMusic">
+<!-- MUSIC -->
+<audio id="bg-music" loop>
   <source src="Until I Found You.mp3" type="audio/mpeg">
 </audio>
 
-<div class="container" id="p1">
+<!-- SCREEN 1 -->
+<div class="screen" id="screen1">
   <h1>Hey Urvi 💕</h1>
   <p>This is something I made… just for you</p>
-  <button onclick="go('p1','p2')">Continue 💌</button>
+  <button onclick="startLove()">Continue 💌</button>
 </div>
 
-<div class="container hidden" id="p2">
-  <img src="urvi1.jpg" class="photo">
-  <h2>This smile 🥹</h2>
-  <p>The one that stays in my head all day</p>
-  <button onclick="go('p2','p3')">Next ➝</button>
+<!-- SCREEN 2 -->
+<div class="screen hidden" id="screen2">
+  <h1>Until I found you… 💖</h1>
+  <img src="urvi1.jpg">
+  <img src="urvi2.jpg">
+  <img src="couple.jpg">
+  <img src="jhumka.jpg">
+  <img src="hands.jpg">
+  <p>You are my forever.</p>
 </div>
 
-<div class="container hidden" id="p3">
-  <img src="jhumka.jpg" class="photo">
-  <h2>That jhumka ✨</h2>
-  <p>You wearing this should be illegal</p>
-  <button onclick="go('p3','p4')">Next ➝</button>
-</div>
+<script>
+  function startLove() {
+    document.getElementById("screen1").classList.add("hidden");
+    document.getElementById("screen2").classList.remove("hidden");
 
-<div class="container hidden" id="p4">
-  <img src="couple.jpg" class="photo">
-  <h2>Us 🤍</h2>
-  <p>My favorite view. Always.</p>
-  <button onclick="go('p4','p5')">Next ➝</button>
-</div>
+    const music = document.getElementById("bg-music");
+    music.play();
+  }
+</script>
 
-<div class="container hidden" id="p5">
-  <img src="hands.jpg" class="photo">
-  <h2>Like this… forever 🥹</h2>
-  <p>Holding you, choosing you</p>
-  <button onclick="go('p5','p6')">Next ➝</button>
-</div>
-
-<div class="container hidden" id="p6">
-  <img src="https://media.tenor.com/zGm5acSjHCIAAAAC/cat-begging.gif" class="cat">
-  <h2>Urvi…</h2>
-  <p>Will you be mine? 💕</p>
-
-  <div class="buttons">
-    <button class="yes" onclick="go('p6','p7')">YES 💖</button>
-    <button class="no" id="noBtn">NO 😒</button>
-  </div>
-</div>
-
-<div class="container hidden
+</body>
+</html>
